@@ -10,6 +10,7 @@
 	`[root@couchbase1 sudenurcelen]# vi /etc/init.d/disable-thp  `
 
 - 1.3)	 Aşağıdaki script dosya içine yapıştırılır.
+
 		#!/bin/bash
 		### BEGIN INIT INFO
 		# Provides:          disable-thp
