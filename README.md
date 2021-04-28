@@ -1,3 +1,5 @@
+**CASE1**
+
 1.	SUNUCU : CENTOS 7    192.168.98.136
 2.	SUNUCU : CENTOS 7    192.168.98.131
 
@@ -63,7 +65,7 @@
 
 2)	**Swappiness kapatılır.**
 
-- 2.1) Swappiness değeri kontrol edilir. Sonuç 0 olmalıdır. Çünkü Linux'ta, çekirdeğin takas düzeyi, sistemin RAM kullanımına bağlı olarak fiziksel bellekteki sayfaları değiştirme olasılığının ne kadar olduğunu gösterir. En iyi Couchbase Sunucu performansını elde etmek için çoğu Linux sisteminde takas 1 veya 0 olarak ayarlanmalıdır.
+- 2.1) Swappiness değeri kontrol edilir. Sonuç 0 olmalıdır. Çünkü Linux'ta, çekirdeğin swappiness, sistemin RAM kullanımına bağlı olarak fiziksel bellekteki sayfaları değiştirme olasılığının ne kadar olduğunu gösterir. En iyi Couchbase Sunucu performansını elde etmek için çoğu Linux sisteminde swappiness 1 veya 0 olarak ayarlanmalıdır.
 
  `[root@couchbase1 sudenurcelen]# cat /proc/sys/vm/swappiness
 30`
