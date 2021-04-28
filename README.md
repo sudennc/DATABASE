@@ -166,3 +166,42 @@ vm.swappiness = 0`
 ![151](https://user-images.githubusercontent.com/28504151/116299245-1abdfb00-a7a6-11eb-8b3a-0035fd137297.png)
 
 
+**CASE2**
+
+1) Önce sunucumuza Python yükleriz. 
+
+`sudo yum install gcc gcc-c++ python3-devel python3-pip cmake`
+
+2) Python SDK yüklenir.
+
+`python3 -m pip install couchbase`
+
+3) Couchbase, kaynaklara erişimi kontrol etmek için Rol Tabanlı Erişim Kontrolü (RBAC) kullanır.Couchbase Sunucumuzun kurulumu sırasında oluşturulan Full Admin rolünü kullanarak Couchbase'e bağlanıyoruz.
+
+`from couchbase.cluster import Cluster, ClusterOptions`
+`from couchbase_core.cluster import PasswordAuthenticator` 
+`from couchbase.cluster import QueryOptions`
+`cluster = Cluster('couchbase://localhost', ClusterOptions(
+  PasswordAuthenticator('Administrator', 'password')))`
+
+4) Kullanıcı adı ve parolayı içeren bir kimlik doğrulayıcı tanımlanmalı ve ardından Cluster'a aktarılmalıdır.
+
+`cb = cluster.bucket('bucket-name')`
+
+5) Bundan sonra dosyamıza datamıza veri ekleriz.
+
+-- Buradaki veri Couchbase'in kendi örnek verisidir.-- 
+
+`airline = {
+  "type": "airline",
+  "id": 8091,
+  "callsign": "CBS",
+  "iata": None,
+  "icao": None,
+  "name": "Couchbase Airways",
+}`
+
+6) Verilerimizi ekledikten sonra Couchbase arayüzümüze geliriz. Bucket'ımızda eklediğimiz veri '1' olarak görünüyor.
+
+![1](https://user-images.githubusercontent.com/28504151/116458319-2fb19180-a86d-11eb-9722-198ecbe1e747.png)
+
